@@ -1,0 +1,91 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo">
+
+		<title>Relação de Faturamento</title>
+
+		<h:form id="formDetFaturamento">
+
+			<p:growl id="growl" showDetail="true" life="4000" />
+
+			<div align="center">
+
+				<p:tabView id="tabFaturamento">
+
+					<p:tab id="cadDados" title="Faturamento por ano">
+
+						<h:panelGrid columns="3" cellspacing="10px">
+							<p:outputLabel value="Ano:" style="font-size: 18px; font: bold" />
+							<p:inputNumber value="#{detFaturamentoBacking.anoPesquisa}"
+								placeholder="Ex: 1998" size="10" decimalPlaces="0" />
+							<p:commandButton id="btnPesquisar" value="Pesquisar" action="#{detFaturamentoBacking.pesquisar}"
+								update="@form" style="width: 200px" />
+						</h:panelGrid>
+						
+						<p:spacer width="50"/>
+
+						<h:panelGrid columns="3">
+							<h:panelGrid columns="1">
+								<p:graphicImage value="#{detFaturamentoBacking.chart}" />
+							</h:panelGrid>
+
+							<p:spacer height="120" />
+
+							<h:panelGrid columns="4" cellpadding="10px">
+								<p:outputLabel value="Janeiro:" />
+								<p:inputText value="#{detFaturamentoBacking.fatJaneiro}"
+									size="10" />
+								<p:outputLabel value="Fevereiro:" />
+								<p:inputText value="#{detFaturamentoBacking.fatFevereiro}"
+									size="10" />
+								<p:outputLabel value="Março:" />
+								<p:inputText value="#{detFaturamentoBacking.fatMarco}" size="10" />
+								<p:outputLabel value="Abril:" />
+								<p:inputText value="#{detFaturamentoBacking.fatAbril}" size="10" />
+								<p:outputLabel value="Maio:" />
+								<p:inputText value="#{detFaturamentoBacking.fatMaio}" size="10" />
+								<p:outputLabel value="Junho:" />
+								<p:inputText value="#{detFaturamentoBacking.fatJunho}" size="10" />
+								<p:outputLabel value="Julho:" />
+								<p:inputText value="#{detFaturamentoBacking.fatJulho}" size="10" />
+								<p:outputLabel value="Agosto:" />
+								<p:inputText value="#{detFaturamentoBacking.fatAgosto}"
+									size="10" />
+								<p:outputLabel value="Setembro:" />
+								<p:inputText value="#{detFaturamentoBacking.fatSetembro}"
+									size="10" />
+								<p:outputLabel value="Outubro:" />
+								<p:inputText value="#{detFaturamentoBacking.fatOutubro}"
+									size="10" />
+								<p:outputLabel value="Novembro:" />
+								<p:inputText value="#{detFaturamentoBacking.fatNovembro}"
+									size="10" />
+								<p:outputLabel value="Dezembro:" />
+								<p:inputText value="#{detFaturamentoBacking.fatDezembro}"
+									size="10" />
+							</h:panelGrid>
+						</h:panelGrid>
+						
+						<p:spacer width="40"/>
+
+						<h:panelGrid columns="1">
+							<p:commandButton id="btnSair" value="Sair"
+								action="#{detFaturamentoBacking.sair}" update="@form"
+								style="width: 100px" />
+						</h:panelGrid>
+					</p:tab>
+
+
+
+				</p:tabView>
+			</div>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
